@@ -33,6 +33,7 @@
               <test name="junit.TestCalculator" haltonfailure="no" outfile="TestCalculator_JUnitResult">
                 <formatter type="xml"/>
               </test>
+			</javac>
         </junit>
     </target>
 	<target name="war" depends="compile">
