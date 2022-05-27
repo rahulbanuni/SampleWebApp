@@ -10,8 +10,9 @@
         <mkdir dir="build/classes"/>
         <mkdir dir="dist"/>
     </target>
+	
     <target name="compile" depends="init">
-        <javac srcdir="src" debug="true" destdir="build/classes">
+        <javac srcdir="src" debug="true" destdir="build/classes" includeantruntime="false">
             <classpath refid="compile.classpath"/>
         </javac>
     </target>
@@ -23,8 +24,6 @@
     </target>
     <target name="junit" depends="compile">
         <junit printsummary="yes" haltonfailure="yes">
-		<mkdir dir="${classes.dir}"/>
-		<javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
               <classpath>
                 <pathelement location="build/classes"/>
                 <pathelement path="WebContent/WEB-INF/lib/junit.jar"/>
@@ -33,7 +32,6 @@
               <test name="junit.TestCalculator" haltonfailure="no" outfile="TestCalculator_JUnitResult">
                 <formatter type="xml"/>
               </test>
-			</javac>
         </junit>
     </target>
 	<target name="war" depends="compile">
