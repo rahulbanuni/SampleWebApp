@@ -23,6 +23,8 @@
     </target>
     <target name="junit" depends="compile">
         <junit printsummary="yes" haltonfailure="yes">
+		<mkdir dir="${classes.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
               <classpath>
                 <pathelement location="build/classes"/>
                 <pathelement path="WebContent/WEB-INF/lib/junit.jar"/>
